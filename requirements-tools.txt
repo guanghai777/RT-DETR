@@ -1,0 +1,14 @@
+# ============================================================
+# tools/ 下分析脚本的可选依赖（按需安装）
+#   pip install -r requirements-tools.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+# ============================================================
+
+# tools/heatmap.py
+pytorch-grad-cam>=1.4.8
+
+# tools/get_COCO_metrice.py
+pycocotools==2.0.8
+tidecv
+
+# tools/voc-yolo.py
+lxml>=4.9

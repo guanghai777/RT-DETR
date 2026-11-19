@@ -1,0 +1,62 @@
+# ============================================================
+# 不入库内容（本地/服务器上按需准备）
+# ============================================================
+
+# 数据集（约 185M，每个新服务器单独传输）
+/datasets/*
+!/datasets/README.md
+
+# 预训练 / 训练得到的权重
+/weights/*
+!/weights/README.md
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.torchscript
+*.tflite
+*.h5
+*.mlmodel
+*.mlpackage
+*.pb
+
+# 训练、验证、推理输出
+/runs/
+nohup.out
+*.log
+
+# ============================================================
+# ultralytics 魔改框架源码（仅 cfg/models 入库）
+# 框架文件随当前机器环境存在，换服务器时按 docs/部署指南.md 重新拷贝
+# ============================================================
+/ultralytics/*
+!/ultralytics/cfg/
+/ultralytics/cfg/*
+!/ultralytics/cfg/models/
+
+# 框架安装文件（本地可选拷贝，不入库）
+/setup.py
+/setup.cfg
+/MANIFEST.in
+
+# ============================================================
+# Python 缓存与编辑器
+# ============================================================
+__pycache__/
+*.py[cod]
+*.so
+*.cache
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

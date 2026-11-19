@@ -1,0 +1,29 @@
+# 绝缘子缺陷数据集（7 类）
+#
+# 说明：
+#   本文件不写 `path`，Ultralytics 会以本 yaml 所在目录为基准解析下面的相对路径，
+#   因此仓库放到任何服务器都不用改路径。数据实际放在 datasets/insulator/ 下：
+#
+#   datasets/insulator/
+#   ├── images/{train,val,test}/
+#   └── labels/{train,val,test}/
+#
+# 注意：split 映射沿用原始项目（容易混淆，勿改）：
+#   train -> images/train
+#   test  -> images/val      <- val.py 默认 split='test'，实际验证的是 images/val
+#   val   -> images/test
+
+train: ../../datasets/insulator/images/train
+test: ../../datasets/insulator/images/val
+val: ../../datasets/insulator/images/test
+
+nc: 7
+names: [
+  'insulator',
+  '110_two_hight_glass',
+  'broken_disc',
+  'Glass_Dirty',
+  'Glass_Loss',
+  'pollution-flashover',
+  'Polyme_Dirty',
+]
