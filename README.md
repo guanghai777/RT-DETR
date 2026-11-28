@@ -5,9 +5,9 @@
 - **任务**：目标检测（7 类：`insulator`、`110_two_hight_glass`、`broken_disc`、
   `Glass_Dirty`、`Glass_Loss`、`pollution-flashover`、`Polyme_Dirty`）
 - **数据集**：Roboflow Insulator Faults Detection，共约 185M
-- **默认模型**：`ultralytics/cfg/models/rt-detr/improve/improve-Copy1.yaml`
+- **默认模型 / 方法1（0718 论文，已发表）**：`ultralytics/cfg/models/rt-detr/improve/improve-method1.yaml`
   （C2f_LGLB + TransformerEncoderLayer_LRSA + SNI + RepC3 + GSConvE）
-- **对照模型**：`improve/improve.yaml`（C2f_LSBlock + DPB + MFM + MANet）
+- **当前方法**：`improve/improve.yaml`（C2f_LSBlock + DPB + MFM + MANet）
 
 ## 目录结构
 
@@ -28,6 +28,8 @@ rtdetr-improve/
 │   └── check_env.py                            # 部署自检
 ├── docs/
 │   ├── 部署指南.md                              # ★ 新服务器快速部署
+│   ├── improve模型分析.md                        # ★ improve.yaml 结构、指标与已知问题
+│   ├── 消融实验计划.md                          # ★ 三因素消融分组与固定超参
 │   └── LOSS改进系列.md
 ├── datasets/                                   # 数据集（不入库）
 ├── weights/                                    # 权重（不入库）
@@ -56,7 +58,7 @@ rtdetr-improve/
 # 0) 自检
 python scripts/check_env.py
 
-# 1) 训练（默认 improve-Copy1.yaml）
+# 1) 训练（默认 improve-method1.yaml）
 python train.py
 
 # 2) 验证并输出论文指标表（参数量 / GFLOPs / FPS / 各类 mAP）
