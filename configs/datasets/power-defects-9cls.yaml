@@ -1,0 +1,28 @@
+# 电力缺陷检测数据集（9 类）
+#
+# 来源：/home/pan/Downloads/电力缺陷检测数据集-9类-7927-yolo.zip
+# 实体数据：/home/pan/datasets/power-defects-9cls
+# 项目内软链接：datasets/power-defects-9cls
+#
+# 规模：images 7972 / labels 7972
+#   train 5543 / val 1595 / test 834
+# split 直接对应 images/{train,val,test}，没有反向映射。
+#
+# 本文件不写 `path`，Ultralytics 以本 yaml 所在目录为基准解析相对路径。
+
+train: ../../datasets/power-defects-9cls/images/train
+val: ../../datasets/power-defects-9cls/images/val
+test: ../../datasets/power-defects-9cls/images/test
+
+nc: 9
+names: [
+  'insulator',
+  'insulator_stringdrop',
+  'insulator_breakage',
+  'insulator_flashover',
+  'damper',
+  'damper_defect',
+  'nest',
+  'junyahuan',
+  'junyahuanqingxie',
+]

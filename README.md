@@ -4,7 +4,8 @@
 
 - **任务**：目标检测（7 类：`insulator`、`110_two_hight_glass`、`broken_disc`、
   `Glass_Dirty`、`Glass_Loss`、`pollution-flashover`、`Polyme_Dirty`）
-- **数据集**：Roboflow Insulator Faults Detection，共约 185M
+- **数据集**：主实验为 Roboflow Insulator Faults Detection（7 类，约 185M）；
+  另备 9 类电力缺陷数据集（7972 张，3.4G）用于 0718 论文复现
 - **默认模型 / 方法1（0718 论文，已发表）**：`ultralytics/cfg/models/rt-detr/improve/improve-method1.yaml`
   （C2f_LGLB + TransformerEncoderLayer_LRSA + SNI + RepC3 + GSConvE）
 - **当前方法**：`improve/improve.yaml`（C2f_LSBlock + DPB + MFM + MANet）
@@ -16,7 +17,9 @@ rtdetr-improve/
 ├── train.py / val.py / detect.py / export.py   # 入口脚本
 ├── project_paths.py                            # 统一路径定义（换服务器无需改代码）
 ├── configs/
-│   └── datasets/insulator.yaml                 # 数据集配置（入库）
+│   └── datasets/
+│       ├── insulator.yaml                      # 7 类绝缘子数据集配置（入库）
+│       └── power-defects-9cls.yaml             # 9 类电力缺陷数据集配置（入库）
 ├── ultralytics/
 │   └── cfg/models/                             # ★ 改进模型 yaml（入库）
 │       ├── rt-detr/improve/                    #   本项目的改进配置
@@ -30,6 +33,7 @@ rtdetr-improve/
 │   ├── 部署指南.md                              # ★ 新服务器快速部署
 │   ├── improve模型分析.md                        # ★ improve.yaml 结构、指标与已知问题
 │   ├── 消融实验计划.md                          # ★ 三因素消融分组与固定超参
+│   ├── 数据集问题与对齐方案.md                  # ★ 7类/9类语义差异、6类派生方案
 │   └── LOSS改进系列.md
 ├── datasets/                                   # 数据集（不入库）
 ├── weights/                                    # 权重（不入库）
@@ -45,7 +49,7 @@ rtdetr-improve/
 | 内容 | 原因 | 如何获取 |
 | --- | --- | --- |
 | `ultralytics/` 框架源码（除 `cfg/models`） | 22M 魔改框架，随环境部署 | [部署指南 · 第 2 步](docs/部署指南.md) |
-| `datasets/` | 185M，含第三方数据授权 | [部署指南 · 第 4 步](docs/部署指南.md) |
+| `datasets/` | 两个数据集约 3.6G，含第三方数据授权 | [部署指南 · 第 4 步](docs/部署指南.md) |
 | `weights/` `*.pt` `*.onnx` | 大文件 | [weights/README.md](weights/README.md) |
 | `runs/` | 训练产物 | 本地训练生成 |
 
